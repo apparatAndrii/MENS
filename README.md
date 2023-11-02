@@ -1,6 +1,4 @@
-<div class="logo">
-    <img src="mens-logo.png" alt="mens stack">
-</div>
+![MENS stack](mens-logo.png)
 
 
 # MENS stack
@@ -122,13 +120,6 @@ MENS stack project is docker-compose infrastructure for running MongoDB, Express
 #### If you want to support my work, you can wisit my telegram channel and subscribe to it!
 
 [![Telegram]](https://t.me/npm_run_boost)
-
-<style>
-    .logo {
-        text-align: center;
-        height: 80px;
-    }
-</style>
 
 [BuiltBy]: https://img.shields.io/badge/Developed%20by-Andrii%20Afanasiev-black?style=for-the-badge&logo=github&logoColor=FFF7E9&color=0A0A0A
 [Telegram]: https://img.shields.io/badge/Telegram-npm%20run%20boost-FFF7E9?style=for-the-badge&logo=telegram&logoColor=FFF7E9&color=0A0A0A
