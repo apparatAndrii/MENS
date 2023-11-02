@@ -115,7 +115,7 @@ MENS stack project is docker-compose infrastructure for running MongoDB, Express
 
 ## Authors
 
-![BuiltBy]
+[![BuiltBy]](https://github.com/apparatAndrii)
 
 #### If you want to support my work, you can wisit my telegram channel and subscribe to it!
 
