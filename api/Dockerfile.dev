@@ -1,0 +1,19 @@
+ARG NODE_VERSION
+
+FROM node:${NODE_VERSION}-alpine
+
+RUN apk --no-cache add curl
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+ARG API_PORT
+
+EXPOSE ${API_PORT}
+
+CMD ["npm", "run", "dev"]

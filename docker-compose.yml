@@ -1,0 +1,79 @@
+version: ${DOCKER_COMPOSE_VERSION}
+
+services:
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.${ENVIROMENT}
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - FRONTEND_PORT=${FRONTEND_PORT}
+    env_file:
+      - .env
+    ports:
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+    volumes: 
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    healthcheck:
+      test: curl -f http://localhost:${FRONTEND_PORT}/
+      interval: 2s
+      timeout: 10s
+      retries: 20
+      start_period: 200s
+    depends_on:
+      api:
+        condition: service_healthy
+
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile.${ENVIROMENT}
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - API_PORT=${API_PORT}
+    env_file:
+      - .env
+    ports:
+      - ${API_PORT}:${API_PORT}
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    healthcheck:
+      test: curl -f http://localhost:${API_PORT}/
+      interval: 2s
+      timeout: 10s
+      retries: 20
+      start_period: 100s
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}
+    volumes:
+      - ./mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+    healthcheck: 
+      test: echo 'db.runCommand("ping").ok'
+      interval: 2s
+      timeout: 10s
+      retries: 20
+      start_period: 40s
+    
+volumes:
+  mongo-data:
+    driver: local
+
+
+
+
