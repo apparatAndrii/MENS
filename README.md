@@ -1,4 +1,4 @@
-<div style="text-align:center"><img src="mens-logo.png" /></div>
+<p align="center"><img src="mens-logo.png" /></p>
 
 # MENS stack
 
