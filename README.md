@@ -1,5 +1,4 @@
-![MENS stack](mens-logo.png)
-
+<div style="text-align:center"><img src="mens-logo.png" /></div>
 
 # MENS stack
 
