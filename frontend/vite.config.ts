@@ -14,7 +14,7 @@ export default defineConfig({
 	},
 	server: {
 		host: true,
-		port: process.env.FRONTEND_PORT,
+		port: Number(process.env.FRONTEND_PORT),
 		strictPort: true,
 		watch: {
 			usePolling: true,
@@ -23,7 +23,7 @@ export default defineConfig({
 	},
 	preview: {
 		host: true,
-		port: process.env.FRONTEND_PORT,
+		port: Number(process.env.FRONTEND_PORT),
 		strictPort: true
 	}
 });
