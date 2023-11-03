@@ -1,2 +1,2 @@
 declare module '*';
-declare var process: NodeJS.Process;
+declare var process: any;
