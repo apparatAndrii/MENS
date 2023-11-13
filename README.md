@@ -30,6 +30,10 @@ MENS stack project is docker-compose infrastructure for running MongoDB, Express
 4. Run `docker-compose up -d` in the root directory of the project
 5. Enjoy!
 
+## Architecture
+
+<p align="center"><img src="mens-architecture.jpg" /></p>
+
 ## Stack
 
 [![MongoDB]](https://www.mongodb.com/)
